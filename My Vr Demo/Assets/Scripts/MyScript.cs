@@ -7,7 +7,7 @@ public class MyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.transform.position = new Vector3(2, 2, 2);
+        this.transform.position = new Vector3(2, 3, 2);
     }
 
     // Update is called once per frame
