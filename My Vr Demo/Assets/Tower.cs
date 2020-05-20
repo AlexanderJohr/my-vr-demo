@@ -13,8 +13,8 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.rotation = Quaternion.Euler(this.transform.localRotation.eulerAngles.x + 1
-                                                  , this.transform.localRotation.eulerAngles.y
+        this.transform.rotation = Quaternion.Euler(this.transform.localRotation.eulerAngles.x
+                                                  , this.transform.localRotation.eulerAngles.y + 1
                                                   , this.transform.localRotation.eulerAngles.z);
     }
 }
