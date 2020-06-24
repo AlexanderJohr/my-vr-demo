@@ -11,11 +11,16 @@ public class InteractOnGaze : MonoBehaviour
     private float winkelToleranz;
 
     [SerializeField]
-    private ParticleSystem particleSystemGameObject; 
+    private ParticleSystem particleSystemGameObject;
+
+    MaterialPropertyBlock block;
+    private Renderer renderer;
 
     void Start()
     {
-        
+        renderer = GetComponent<Renderer>();
+        block = new MaterialPropertyBlock();
+        renderer.GetPropertyBlock(block);
     }
 
     void Update()
@@ -57,10 +62,14 @@ public class InteractOnGaze : MonoBehaviour
     private void DeaktiviereEffekt()
     {
         particleSystemGameObject.Stop();
+        block.SetFloat("_activateTime", 0);
+        renderer.SetPropertyBlock(block);
     }
 
     private void AktiviereEffekt()
     {
         particleSystemGameObject.Play();
+        block.SetFloat("_activateTime", 1);
+        renderer.SetPropertyBlock(block);
     }
 }
